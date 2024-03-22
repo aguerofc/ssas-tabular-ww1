@@ -1,0 +1,773 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer XI039 WWI_DWH",
+        "connectionString": "Provider=SQLOLEDB;Data Source=XI039;Initial Catalog=WWI_DWH;User ID=sa;Persist Security Info=true",
+        "impersonationMode": "impersonateAccount",
+        "account": "BAS\\carlos.aguero",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "City",
+        "columns": [
+          {
+            "name": "CiudadID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CiudadID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Ciudad",
+            "dataType": "string",
+            "sourceColumn": "Ciudad",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Estado",
+            "dataType": "string",
+            "sourceColumn": "Estado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Pais",
+            "dataType": "string",
+            "sourceColumn": "Pais",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Continente",
+            "dataType": "string",
+            "sourceColumn": "Continente",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "TerritorioVentas",
+            "dataType": "string",
+            "sourceColumn": "TerritorioVentas",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Region",
+            "dataType": "string",
+            "sourceColumn": "Region",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Subregion",
+            "dataType": "string",
+            "sourceColumn": "Subregion",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCiudad",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimCiudad].*   FROM [dbo].[DimCiudad] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimCiudad].*   FROM [dbo].[DimCiudad] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCiudad"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Client",
+        "columns": [
+          {
+            "name": "ClienteID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ClienteID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Cliente",
+            "dataType": "string",
+            "sourceColumn": "Cliente",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Categoria",
+            "dataType": "string",
+            "sourceColumn": "Categoria",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "GrupoCompra",
+            "dataType": "string",
+            "sourceColumn": "GrupoCompra",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ContactoPrincipal",
+            "dataType": "string",
+            "sourceColumn": "ContactoPrincipal",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CodigoPostal",
+            "dataType": "string",
+            "sourceColumn": "CodigoPostal",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimCliente",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimCliente].*   FROM [dbo].[DimCliente] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimCliente].*   FROM [dbo].[DimCliente] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimCliente"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Employee",
+        "columns": [
+          {
+            "name": "EmpleadoID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "EmpleadoID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Empleado",
+            "dataType": "string",
+            "sourceColumn": "Empleado",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NombrePreferido",
+            "dataType": "string",
+            "sourceColumn": "NombrePreferido",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Correo",
+            "dataType": "string",
+            "sourceColumn": "Correo",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Telefono",
+            "dataType": "string",
+            "sourceColumn": "Telefono",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimEmpleado",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimEmpleado].*   FROM [dbo].[DimEmpleado] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimEmpleado].*   FROM [dbo].[DimEmpleado] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimEmpleado"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "dataCategory": "Time",
+        "columns": [
+          {
+            "name": "Fecha",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isKey": true,
+            "sourceColumn": "Fecha",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Anio",
+            "dataType": "int64",
+            "sourceColumn": "Anio",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Trimestre",
+            "dataType": "string",
+            "sourceColumn": "Trimestre",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Semestre",
+            "dataType": "string",
+            "sourceColumn": "Semestre",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Mes",
+            "dataType": "string",
+            "sourceColumn": "Mes",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Dia",
+            "dataType": "string",
+            "sourceColumn": "Dia",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DiaSemana",
+            "dataType": "int64",
+            "sourceColumn": "DiaSemana",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NombreDia",
+            "dataType": "string",
+            "sourceColumn": "NombreDia",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NumSemana",
+            "dataType": "int64",
+            "sourceColumn": "NumSemana",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimFecha",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimFecha].*   FROM [dbo].[DimFecha] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimFecha].*   FROM [dbo].[DimFecha] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimFecha"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Inventory",
+        "columns": [
+          {
+            "name": "InventarioID",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "InventarioID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ArticuloInventario",
+            "dataType": "string",
+            "sourceColumn": "ArticuloInventario",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Color",
+            "dataType": "string",
+            "sourceColumn": "Color",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PaqueteVenta",
+            "dataType": "string",
+            "sourceColumn": "PaqueteVenta",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "PaqueteCompra",
+            "dataType": "string",
+            "sourceColumn": "PaqueteCompra",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Marca",
+            "dataType": "string",
+            "sourceColumn": "Marca",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Tamanio",
+            "dataType": "string",
+            "sourceColumn": "Tamanio",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NombreProveedor",
+            "dataType": "string",
+            "sourceColumn": "NombreProveedor",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimStock",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[DimStock].*   FROM [dbo].[DimStock] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[DimStock].*   FROM [dbo].[DimStock] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimStock"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Measure",
+        "columns": [
+          {
+            "name": "IDVenta",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDVenta",
+            "sourceProviderType": "BigInt"
+          },
+          {
+            "name": "IDCiudad",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCiudad",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDCliente",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDCliente",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDItemInventario",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDItemInventario",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDFechaFactura",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "IDFechaFactura",
+            "formatString": "yyyy-MM-dd",
+            "sourceProviderType": "WChar",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1033\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "IDVendedor",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDVendedor",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "IDFacturaWWI",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "IDFacturaWWI",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Cantidad",
+            "dataType": "int64",
+            "sourceColumn": "Cantidad",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "PrecioUnitario",
+            "dataType": "double",
+            "sourceColumn": "PrecioUnitario",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "TasaImpuesto",
+            "dataType": "double",
+            "sourceColumn": "TasaImpuesto",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MontoImpuesto",
+            "dataType": "double",
+            "sourceColumn": "MontoImpuesto",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "Ganancia",
+            "dataType": "double",
+            "sourceColumn": "Ganancia",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "TotalIncluyendoImpuestos",
+            "dataType": "double",
+            "sourceColumn": "TotalIncluyendoImpuestos",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "TH_VENTAS",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " \t\t\t\tSELECT [dbo].[TH_VENTAS].*   FROM [dbo].[TH_VENTAS] ",
+              "dataSource": "SqlServer XI039 WWI_DWH"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Ventas Totales",
+            "expression": " SUM('Measure'[TotalIncluyendoImpuestos])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Promedio Ventas Mensuales",
+            "expression": " AVERAGE('Measure'[TotalIncluyendoImpuestos])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Promedio de Precio Unitario",
+            "expression": " AVERAGE( 'Measure'[PrecioUnitario])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Total de Impuestos Recaudados",
+            "expression": " SUM('Measure'[MontoImpuesto])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cantidad Total de Articulos Vendidos",
+            "expression": " COUNTROWS('Measure')",
+            "formatString": "0"
+          },
+          {
+            "name": "Margen de Ganancia (%)",
+            "expression": "DIVIDE('Measure'[Ganancia Total], SUM('Measure'[TotalIncluyendoImpuestos])) * 100",
+            "formatString": "0.00"
+          },
+          {
+            "name": "Ganancia Total",
+            "expression": "sum('Measure'[Ganancia])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Cantidad de Ventas por Ciudad",
+            "expression": " COUNTROWS(GROUPBY('Measure', 'Measure'[IDCiudad]))"
+          },
+          {
+            "name": "Valor Objetivo de Ventas Mensuales",
+            "expression": " 'Measure'[Promedio Ventas Mensuales] * 1.10"
+          },
+          {
+            "name": "Promedio de Ventas Mensuales",
+            "expression": [
+              " ",
+              "    AVERAGEX(",
+              "        CALCULATETABLE(",
+              "            'Measure',",
+              "            DATESINPERIOD('Date'[Fecha], LASTDATE('Date'[Fecha]), -12, MONTH)",
+              "        ),",
+              "     'Measure'[Ventas Totales]",
+              "    )"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "kpi": {
+              "targetExpression": "'Measure'[Valor Objetivo de Ventas Mensuales]",
+              "targetFormatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+              "statusGraphic": "Traffic Light - Single",
+              "statusExpression": [
+                "var x='Measure'[Promedio de Ventas Mensuales]/'Measure'[_Promedio de Ventas Mensuales Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.3,-1,",
+                "\t                If(x<0.7,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "30"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "70"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Margen de Ganancia Promedio",
+            "expression": [
+              " ",
+              "    AVERAGEX(",
+              "        'Measure',",
+              "        DIVIDE('Measure'[Ganancia],'Measure'[Ventas Totales])",
+              "    )"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "kpi": {
+              "targetExpression": "'Measure'[Margen de Ganancia Objetivo]",
+              "targetFormatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+              "statusGraphic": "Road Signs",
+              "statusExpression": [
+                "var x='Measure'[Margen de Ganancia Promedio]/'Measure'[_Margen de Ganancia Promedio Goal] return",
+                "            if(ISBLANK(x),BLANK(),",
+                "                    If(x<0.3,-1,",
+                "\t                If(x<0.7,0,1)",
+                "                )",
+                "            )",
+                "            "
+              ],
+              "annotations": [
+                {
+                  "name": "GoalType",
+                  "value": "Measure"
+                },
+                {
+                  "name": "KpiStatusType",
+                  "value": "Linear"
+                },
+                {
+                  "name": "KpiThresholdType",
+                  "value": "Percentage"
+                },
+                {
+                  "name": "KpiThresholdOrdering",
+                  "value": "Ascending"
+                },
+                {
+                  "name": "KpiThresholdCount",
+                  "value": "2"
+                },
+                {
+                  "name": "KpiThreshold_0",
+                  "value": "30"
+                },
+                {
+                  "name": "KpiThreshold_1",
+                  "value": "70"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"1033\" DisplayName=\"$ English (United States)\" Symbol=\"$\" PositivePattern=\"0\" NegativePattern=\"0\" /></Format>"
+              }
+            ]
+          },
+          {
+            "name": "Margen de Ganancia Objetivo",
+            "expression": " 0.20"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " \t\t\t\tSELECT [dbo].[TH_VENTAS].*   FROM [dbo].[TH_VENTAS] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "TH_VENTAS"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "869409ba-7e77-4de0-be93-903f31f121b6",
+        "fromTable": "Measure",
+        "fromColumn": "IDCiudad",
+        "toTable": "City",
+        "toColumn": "CiudadID"
+      },
+      {
+        "name": "869795cb-8479-49a2-a222-6800b4bb209c",
+        "fromTable": "Measure",
+        "fromColumn": "IDItemInventario",
+        "toTable": "Inventory",
+        "toColumn": "InventarioID"
+      },
+      {
+        "name": "07011027-23a0-4fe3-9431-f9da8375505c",
+        "fromTable": "Measure",
+        "fromColumn": "IDFechaFactura",
+        "toTable": "Date",
+        "toColumn": "Fecha"
+      },
+      {
+        "name": "de535f76-4606-48fb-b79c-85ccd6e698f3",
+        "fromTable": "Measure",
+        "fromColumn": "IDCliente",
+        "toTable": "Client",
+        "toColumn": "ClienteID"
+      },
+      {
+        "name": "d1433a17-795e-426d-9457-4beb1f9c00f9",
+        "fromTable": "Measure",
+        "fromColumn": "IDVendedor",
+        "toTable": "Employee",
+        "toColumn": "EmpleadoID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
